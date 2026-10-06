@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Samer 💗</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Arial,sans-serif;background:linear-gradient(135deg,#ffb6d9,#ffd6e8,#fff0f6);display:flex;justify-content:center;align-items:center;overflow:hidden;color:#6b2147}
+.card{width:90%;max-width:430px;background:rgba(255,255,255,.9);padding:35px 25px;border-radius:30px;text-align:center;box-shadow:0 15px 40px rgba(120,40,80,.2);position:relative;z-index:2}
+h1{font-size:28px;margin-bottom:8px}.name{font-size:19px;font-weight:bold;color:#e04f91}.subtitle{font-size:14px;margin:15px 0 25px}
+input{width:100%;padding:14px;border:2px solid #f2a7c8;border-radius:15px;outline:none;text-align:center;font-size:18px;letter-spacing:5px}
+button{margin-top:15px;width:100%;padding:14px;border:0;border-radius:15px;background:#e95b9d;color:white;font-size:16px;font-weight:bold;cursor:pointer}
+#error{color:#d6336c;margin-top:10px;font-size:13px}#birthday{display:none;animation:appear 1s ease}
+.big-heart{font-size:65px;animation:heartbeat 1.2s infinite}.message{text-align:left;line-height:1.7;font-size:15px;margin-top:20px}.signature{margin-top:25px;font-weight:bold;color:#e04f91}
+.heart{position:fixed;bottom:-30px;animation:float 6s linear infinite;opacity:.7;z-index:1}
+@keyframes float{0%{transform:translateY(0) rotate(0);opacity:0}20%{opacity:.8}100%{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+@keyframes heartbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}@keyframes appear{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div class="card">
+<div id="lock">
+<div class="big-heart">💗</div>
+<h1>A Little Surprise For You</h1>
+<div class="name">Samer Stephanie Chiu Merindo Peralta</div>
+<p class="subtitle">Someone prepared something special for your birthday... 🎂<br><br>Enter the secret code to open it 🔐</p>
+<input id="code" type="password" maxlength="4" placeholder="••••" onkeydown="if(event.key==='Enter')unlock()">
+<button onclick="unlock()">🔓 Unlock My Message</button>
+<div id="error"></div>
+</div>
+
+<div id="birthday">
+<div class="big-heart">🎂💗</div>
+<h1>Happy Birthday, Samer! 🥳</h1>
+<p class="message">
+Happy birthday to you, Samer! 💗<br><br>
+I hope today reminds you how special and appreciated you are.
+I’m really happy that I get to know you, make memories with you,
+and be part of your life.<br><br>
+I wish you more happiness, good health, success, and many more
+beautiful moments ahead. Whatever happens, I hope you always
+remember that you deserve good things and genuine happiness.<br><br>
+Enjoy your special day, birthday girl! 🎂✨
+Eat well, smile a lot, and don't forget to enjoy every little moment today.<br><br>
+And lastly...<br><br>
+<strong>Happy Birthday, Samer. 💗 I hope this little surprise makes you smile.</strong>
+</p>
+<div class="signature">— From someone who cares about you ❤️</div>
+<button onclick="celebrate()">🎉 One More Surprise</button>
+</div>
+</div>
+
+<script>
+function unlock(){
+ const code=document.getElementById("code").value;
+ if(code==="1031"){
+  document.getElementById("lock").style.display="none";
+  document.getElementById("birthday").style.display="block";
+  celebrate();
+ }else{
+  document.getElementById("error").innerHTML="Wrong code 😭 Try again, birthday girl 💗";
+ }
+}
+function celebrate(){
+ for(let i=0;i<35;i++){
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML=["💗","💕","💖","💘","🎀","✨","🌸"][Math.floor(Math.random()*7)];
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(15+Math.random()*25)+"px";
+  heart.style.animationDuration=(3+Math.random()*5)+"s";
+  heart.style.animationDelay=Math.random()*2+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),9000);
+ }
+}
+</script>
+</body>
+</html>
